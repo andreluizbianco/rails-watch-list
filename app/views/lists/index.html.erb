@@ -1,10 +1,20 @@
-<h1>My lists</h1>
 
+<div class="container mt-5 mb-5">
+    <h1 class="text-center p-4">My lists</h1>
 
-<ul>
+  <div class="cards">
     <% @lists.each do |l| %>
-    <li><%= link_to l.name, list_path(l.id) %></li>
+      <div class="card-category" col-sm-6 style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <%= link_to l.name, list_path(l.id) %>
+      </div>
     <% end %>
-</ul>
+  </div>
 
-<%= link_to "Create new list", new_list_path %>
+  <div class="mt-4">
+    <%= simple_form_for(@list) do |f| %>
+      <%= f.input :name %>
+      <%= f.button :submit, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+  <%# <%= link_to "Create new list", new_list_path %>

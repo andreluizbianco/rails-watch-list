@@ -3,9 +3,11 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.all
+    @list = List.new
   end
 
   def show
+    @movies = Movie.all
   end
 
   def new
