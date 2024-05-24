@@ -1,14 +1,17 @@
-<h1>List</h1>
+<div class="container mt-4 mb-4">
+  <h1 class="p-4"><%= @list.name %> list</h1>
 
-<h2><%= @list.name %></h2>
 
-<ul>
     <% @list.bookmarks.each do |bookmark| %>
-    <li><%= bookmark.movie.title %></li>
-    <%= image_tag "logo.png", alt: "Le Wagon", width: 200 %>
-    <li><%= bookmark.comment %></li>
+      <div class="mt-3">
+        <h2><%= bookmark.movie.title %></h2>
+        <%= image_tag "annie-spratt-vtqbo2zySdw-unsplash.jpg", alt: "Le Wagon", width: 200 %>
+        <p><%= bookmark.comment %></p>
+        <p><%= link_to "Remove from the list", list_bookmark_path %></p>
+      </div>
     <% end %>
-</ul>
 
-<p><%= link_to "Back to Movie lists", lists_path %></p>
-<p><%= link_to "Add a movie to this list", new_list_bookmark_path(@list) %></p>
+
+  <p><%= link_to "Back to Movie lists", lists_path %></p>
+  <p><%= link_to "Add a movie to this list", new_list_bookmark_path(@list) %></p>
+</div>
